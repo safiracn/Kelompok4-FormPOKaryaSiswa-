@@ -40,7 +40,6 @@ body {
     flex-direction: column;
 }
 
-
 .main-header {
     background-color: var(--primary-blue);
     color: var(--white);
@@ -69,7 +68,6 @@ body {
 .gold-text {
     color: var(--gold-soft);
 }
-
 
 .customizer-wrapper {
     display: grid;
@@ -101,7 +99,6 @@ body {
     margin: 20px 0 15px 0;
     text-transform: uppercase;
 }
-
 
 .input-group {
     display: flex;
