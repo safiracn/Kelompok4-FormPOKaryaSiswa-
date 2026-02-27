@@ -1,0 +1,170 @@
+/* 1. VARIABEL WARNA: Tempat menyimpan warna agar mudah dipanggil & konsisten  */
+:root {
+    --primary-blue: #1e3a8a;       /* Biru gelap untuk kesan formal & profesional */
+    --accent-blue: #3b82f6;        /* Biru terang untuk elemen yang butuh perhatian */
+    --soft-yellow: #fef9c3;        /* Kuning sangat muda untuk latar belakang aksen */
+    --gold-soft: #facc15;          /* Kuning emas untuk teks atau garis penekanan */
+    --bg-light: #f1f5f9;           /* Warna abu-abu sangat muda untuk background halaman */
+    --text-dark: #1e293b;          /* Warna teks utama agar mudah dibaca */
+    --white: #ffffff;              /* Warna putih bersih */
+    --border-radius: 12px;         /* Ukuran lengkungan sudut kotak (biar gak kaku) */
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+}
+
+.luxury-container {
+    background: var(--white);
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
+    overflow: hidden;
+}
+
+/* --- HEADER SECTION (LOGO KIRI, TEKS SEJAJAR) --- */
+.main-header {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 20px 40px;
+    display: flex;         /* Membuat logo dan teks sejajar */
+    align-items: center;   /* Rata tengah secara vertikal */
+    gap: 60px;            /* Jarak antara logo dan teks */
+}
+
+.main-header img {
+    height: 120px;         /* Ukuran logo */
+    width: auto;
+    background: var(--soft-yellow); 
+    padding: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;       /* Mencegah logo gepeng */
+}
+
+.main-header h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 4rem;      /* Ukuran teks lebih besar */
+    letter-spacing: 1px;
+}
+
+.gold-text {
+    color: var(--gold-soft);
+}
+
+/* --- LAYOUT SECTION --- */
+.customizer-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 30px;
+    padding: 30px;
+    align-items: start;
+}
+
+@media (max-width: 850px) {
+    .customizer-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .main-header {
+        flex-direction: column; /* Balik ke tengah jika di HP */
+        text-align: center;
+    }
+}
+
+/* --- GAMBAR PRODUK (AGAR TIDAK TUMPANG TINDIH) --- */
+.step-panel img {
+    width: 100%;
+    max-width: 450px;     /* Batas lebar gambar */
+    height: 300px;        /* Batas tinggi gambar */
+    object-fit: cover;    /* Gambar tetap proporsional */
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* --- FORM & INPUT --- */
+.step-panel h2 {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    border-left: 5px solid var(--gold-soft);
+    padding-left: 12px;
+    margin: 20px 0 15px 0;
+}
+
+/* fira.css */
+.input-group {
+    display: flex;
+    align-items: center; /* Menjaga label, titik dua, dan input sejajar di tengah secara vertikal */
+    margin-bottom: 15px;
+    gap: 10px; /* Memberi jarak antar elemen */
+}
+
+.input-group label {
+    width: 120px; /* Memberi lebar tetap agar titik dua sejajar lurus ke bawah */
+    font-weight: 600;
+    margin-bottom: 0; /* Hapus margin bawah agar tidak turun */
+}
+
+.separator {
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+input[type="text"], 
+input[type="number"], 
+textarea {
+    flex: 1; /* Agar kotak input mengisi sisa ruang yang tersedia */
+    padding: 10px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+/* --- SHIPPING & INVOICE --- */
+.grid-options {
+    display: flex;
+    gap: 15px;
+}
+
+.card-content {
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card-option input { display: none; }
+
+.card-option input:checked + .card-content {
+    background-color: var(--soft-yellow);
+    border-color: var(--gold-soft);
+    font-weight: bold;
+}
+
+.invoice-box {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-blue);
+}
+
+.order-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
