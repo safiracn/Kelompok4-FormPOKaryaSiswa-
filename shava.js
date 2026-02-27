@@ -29,7 +29,7 @@ function submitFinal() {
     const alamat = document.getElementById('alamat').value.trim();
     
     // Aturan Huruf/Angka
-    const hanyaHuruf = /^[a-zA-Z\s]'+$/;
+    const hanyaHuruf = /^[a-zA-Z\s']+$/;
     const hanyaAngka = /^[0-9]+$/;
 
     // Cek apakah ada yang kosong
