@@ -1,17 +1,20 @@
-/* 1. VARIABEL WARNA: Tempat menyimpan warna agar mudah dipanggil & konsisten  */
+/* =========================================
+   1. VARIABEL & RESET
+   ========================================= */
 :root {
-    --primary-blue: #1e3a8a;       /* Biru gelap untuk kesan formal & profesional */
-    --accent-blue: #3b82f6;        /* Biru terang untuk elemen yang butuh perhatian */
-    --soft-yellow: #fef9c3;        /* Kuning sangat muda untuk latar belakang aksen */
-    --gold-soft: #facc15;          /* Kuning emas untuk teks atau garis penekanan */
-    --bg-light: #f1f5f9;           /* Warna abu-abu sangat muda untuk background halaman */
-    --text-dark: #1e293b;          /* Warna teks utama agar mudah dibaca */
-    --white: #ffffff;              /* Warna putih bersih */
-    --border-radius: 12px;         /* Ukuran lengkungan sudut kotak (biar gak kaku) */
+    --primary-blue: #1e3a8a;       
+    --accent-blue: #3b82f6;        
+    --soft-yellow: #fef9c3;        
+    --gold-soft: #facc15;          
+    --bg-light: #f1f5f9;           
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border-radius: 12px;
 }
 
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
@@ -22,6 +25,9 @@ body {
     padding: 20px;
 }
 
+/* =========================================
+   2. LAYOUT UTAMA
+   ========================================= */
 .luxury-container {
     background: var(--white);
     width: 95%;
@@ -30,136 +36,145 @@ body {
     border-radius: var(--border-radius);
     box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-/* --- HEADER SECTION (LOGO KIRI, TEKS SEJAJAR) --- */
+
 .main-header {
     background-color: var(--primary-blue);
     color: var(--white);
-    padding: 20px 40px;
-    display: flex;         /* Membuat logo dan teks sejajar */
-    align-items: center;   /* Rata tengah secara vertikal */
-    gap: 60px;            /* Jarak antara logo dan teks */
+    padding: 25px 40px;
+    display: flex;
+    align-items: center;
+    gap: 95px;
 }
 
 .main-header img {
-    height: 120px;         /* Ukuran logo */
+    height: 130px;
     width: auto;
-    background: var(--soft-yellow); 
+    background: var(--white); 
     padding: 8px;
     border-radius: 50%;
-    flex-shrink: 0;       /* Mencegah logo gepeng */
+    flex-shrink: 0;
 }
 
 .main-header h1 {
     font-family: 'Playfair Display', serif;
     margin: 0;
-    font-size: 4rem;      /* Ukuran teks lebih besar */
-    letter-spacing: 1px;
+    font-size: 3.5rem;
 }
 
+/* --- TAMBAHKAN KODE INI --- */
 .gold-text {
     color: var(--gold-soft);
 }
 
-/* --- LAYOUT SECTION --- */
+
 .customizer-wrapper {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; 
+    grid-template-columns: 1.1fr 0.9fr; 
     gap: 30px;
     padding: 30px;
-    align-items: start;
 }
 
-@media (max-width: 850px) {
-    .customizer-wrapper {
-        grid-template-columns: 1fr;
-    }
-    .main-header {
-        flex-direction: column; /* Balik ke tengah jika di HP */
-        text-align: center;
-    }
-}
-
-/* --- GAMBAR PRODUK (AGAR TIDAK TUMPANG TINDIH) --- */
+/* =========================================
+   3. GAMBAR PRODUK (FIX ZOOM - MEJA UTUH)
+   ========================================= */
+/* Memperkecil Gambar Produk agar tidak tumpang tindih */
 .step-panel img {
-    width: 100%;
-    max-width: 450px;     /* Batas lebar gambar */
-    height: 300px;        /* Batas tinggi gambar */
-    object-fit: cover;    /* Gambar tetap proporsional */
+    max-width: 100%;
+    height: 250px; /* Tinggi dibatasi agar form di bawahnya naik */
+    object-fit: cover;
     border-radius: 10px;
-    margin-top: 10px;
-    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* --- FORM & INPUT --- */
+/* =========================================
+   4. FORM SEJAJAR (FIX JUMLAH PESANAN SEBARIS)
+   ========================================= */
 .step-panel h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--primary-blue);
     border-left: 5px solid var(--gold-soft);
     padding-left: 12px;
     margin: 20px 0 15px 0;
+    text-transform: uppercase;
 }
 
-/* fira.css */
+
 .input-group {
     display: flex;
-    align-items: center; /* Menjaga label, titik dua, dan input sejajar di tengah secara vertikal */
-    margin-bottom: 15px;
-    gap: 10px; /* Memberi jarak antar elemen */
+    align-items: center; 
+    margin-bottom: 12px;
+    gap: 12px;
+    width: 100%;
 }
 
 .input-group label {
-    width: 120px; /* Memberi lebar tetap agar titik dua sejajar lurus ke bawah */
+    width: 140px; /* Diperlebar agar "Jumlah Pesanan" tidak patah jadi 2 baris */
     font-weight: 600;
-    margin-bottom: 0; /* Hapus margin bawah agar tidak turun */
+    flex-shrink: 0;
+    white-space: nowrap; /* Memaksa teks tetap satu baris */
 }
 
 .separator {
     font-weight: bold;
     color: var(--primary-blue);
+    font-weight: bold;
+    flex-shrink: 0;
 }
 
-input[type="text"], 
-input[type="number"], 
-textarea {
-    flex: 1; /* Agar kotak input mengisi sisa ruang yang tersedia */
+input[type="text"], textarea {
+    flex: 1;
     padding: 10px;
     border: 1.5px solid #e2e8f0;
     border-radius: 8px;
 }
 
-/* --- SHIPPING & INVOICE --- */
-.grid-options {
-    display: flex;
-    gap: 15px;
-}
-
-.card-content {
-    padding: 15px;
-    border: 2px solid #e2e8f0;
-    border-radius: 10px;
+/* Kotak Jumlah Pesanan Ramping */
+input[type="number"] {
+    width: 70px; 
+    padding: 8px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
     text-align: center;
 }
 
-.card-option input { display: none; }
+.pcs-text {
+    font-weight: 500;
+    color: var(--text-muted);
+}
 
+/* =========================================
+   5. SHIPPING & INVOICE
+   ========================================= */
+.grid-options { display: flex; gap: 10px; }
+.card-option { flex: 1; cursor: pointer; }
+.card-option input { display: none; }
+.card-content {
+    padding: 10px;
+    border: 2px solid #f1f5f9;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
 .card-option input:checked + .card-content {
     background-color: var(--soft-yellow);
     border-color: var(--gold-soft);
-    font-weight: bold;
+     font-weight: bold;
 }
 
 .invoice-box {
-    background-color: var(--bg-light);
+    background-color: #f8fafc;
     padding: 20px;
-    border-radius: 10px;
-    border-left: 5px solid var(--primary-blue);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
 }
 
 .order-btn {
     width: 100%;
-    padding: 16px;
+    padding: 15px;
     background-color: var(--primary-blue);
     color: white;
     border: none;
@@ -167,4 +182,26 @@ textarea {
     font-weight: bold;
     cursor: pointer;
     margin-top: 15px;
+}
+
+/* =========================================
+   6. FOOTER 
+   ========================================= */
+footer {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+footer p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 850px) {
+    .customizer-wrapper { grid-template-columns: 1fr; }
+    .input-group label { width: 120px; font-size: 0.9rem; }
 }
