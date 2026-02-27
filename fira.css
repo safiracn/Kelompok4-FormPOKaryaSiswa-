@@ -1,22 +1,22 @@
-/* =========================================
-   1. VARIABEL & RESET
-   ========================================= */
+/* VARIABEL WARNA */
 :root {
-    --primary-blue: #1e3a8a;       
-    --accent-blue: #3b82f6;        
-    --soft-yellow: #fef9c3;        
-    --gold-soft: #facc15;          
-    --bg-light: #f1f5f9;           
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
-    --white: #ffffff;
-    --border-radius: 12px;
+    --primary-blue: #1e3a8a;       /* Biru gelap untuk header & tombol */
+    --accent-blue: #3b82f6;        /* Biru terang untuk efek fokus */
+    --soft-yellow: #fef9c3;        /* Kuning muda untuk background pilihan */
+    --gold-soft: #facc15;          /* Kuning emas untuk aksen & teks penting */
+    --bg-light: #f1f5f9;           /* Abu-abu sangat muda untuk background layar */
+    --text-dark: #1e293b;          /* Warna teks utama (hampir hitam) */
+    --text-muted: #64748b;         /* Warna teks keterangan (abu-abu) */
+    --white: #ffffff;              /* Warna putih bersih */
+    --border-radius: 12px;         /* Ukuran lengkungan sudut kotak */
 }
 
 * {
+    /* Membuat perhitungan lebar elemen jadi akurat meskipun ada padding */
     box-sizing: border-box;
 }
 
+/* Mengatur halaman" utama website */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-light);
@@ -25,9 +25,9 @@ body {
     padding: 20px;
 }
 
-/* =========================================
-   2. LAYOUT UTAMA
-   ========================================= */
+/* LAYOUT UTAMA (CONTAINER & HEADER)
+   Mengatur kotak putih besar sebagai wadah utama dan bagian biru (Header) 
+   di atas yang berisi logo sekolah serta judul form. */
 .luxury-container {
     background: var(--white);
     width: 95%;
@@ -64,11 +64,12 @@ body {
     font-size: 3.5rem;
 }
 
-/* --- TAMBAHKAN KODE INI --- */
+/* Penanda teks warna emas */
 .gold-text {
     color: var(--gold-soft);
 }
 
+/* Pembagi halaman menjadi 2 kolom (Kiri: Produk & Kontak, Kanan: Pesanan) */
 .customizer-wrapper {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr; 
@@ -76,10 +77,9 @@ body {
     padding: 30px;
 }
 
-/* =========================================
-   3. GAMBAR PRODUK (FIX ZOOM - MEJA UTUH)
-   ========================================= */
-/* Memperkecil Gambar Produk agar tidak tumpang tindih */
+/* GAMBAR PRODUK
+   Mengatur foto meja agar tampil tidak terpotong, 
+   dan memiliki bayangan halus agar terlihat menonjol.*/
 .step-panel img {
     max-width: 100%;
     height: 250px; /* Tinggi dibatasi agar form di bawahnya naik */
@@ -88,9 +88,8 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* =========================================
-   4. FORM SEJAJAR (FIX JUMLAH PESANAN SEBARIS)
-   ========================================= */
+/* Mengatur baris input agar Label, Titik Dua, dan Kotak Isi (Input) 
+   berada dalam satu baris lurus yang rapi dan mudah diisi.*/
 .step-panel h2 {
     font-size: 1rem;
     color: var(--primary-blue);
@@ -99,7 +98,7 @@ body {
     margin: 20px 0 15px 0;
     text-transform: uppercase;
 }
-
+ 
 .input-group {
     display: flex;
     align-items: center; 
@@ -129,7 +128,7 @@ input[type="text"], textarea {
     border-radius: 8px;
 }
 
-/* Kotak Jumlah Pesanan Ramping */
+/* Kotak kecil khusus angka jumlah pesanan */
 input[type="number"] {
     width: 70px; 
     padding: 8px;
@@ -143,9 +142,8 @@ input[type="number"] {
     color: var(--text-muted);
 }
 
-/* =========================================
-   5. SHIPPING & INVOICE
-   ========================================= */
+/* Mengatur tombol pilihan pengiriman (Ambil/Antar) agar berubah warna 
+   saat diklik dan kotak ringkasan total harga di bagian bawah.*/
 .grid-options { display: flex; gap: 10px; }
 .card-option { flex: 1; cursor: pointer; }
 .card-option input { display: none; }
@@ -181,9 +179,8 @@ input[type="number"] {
     margin-top: 15px;
 }
 
-/* =========================================
-   6. FOOTER 
-   ========================================= */
+/* Bagian bawah untuk hak cipta dan pengaturan khusus agar tampilan 
+   tetap rapi meskipun menggunakan hp */
 footer {
     padding: 15px;
     text-align: center;
@@ -197,7 +194,8 @@ footer p {
     font-size: 0.8rem;
 }
 
-/* --- RESPONSIVE FIX --- */
+/* Bagian ini adalah sensor agar tampilan web berubah otomatis 
+   saat dibuka di HP atau layar yang lebarnya di bawah 850px*/
 @media (max-width: 850px) {
     .customizer-wrapper { grid-template-columns: 1fr; }
     .input-group label { width: 120px; font-size: 0.9rem; }
