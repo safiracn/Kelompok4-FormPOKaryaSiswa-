@@ -44,7 +44,6 @@ function submitFinal() {
     const noTelp = elNoTelp.value.trim();
     const alamat = elAlamat.value.trim();
     
-    // Aturan Huruf/Angka (Regex)
     const hanyaHuruf = /^[a-zA-Z\s]+$/;
     const hanyaAngka = /^[0-9]+$/;
 
