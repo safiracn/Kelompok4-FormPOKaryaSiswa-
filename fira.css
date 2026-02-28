@@ -121,11 +121,15 @@ body {
     flex-shrink: 0;
 }
 
-input[type="text"], textarea {
+input[type="text"], 
+textarea {
     flex: 1;
     padding: 10px;
     border: 1.5px solid #e2e8f0;
     border-radius: 8px;
+    font-family: 'Inter', sans-serif; 
+    font-size: 1rem;                 
+    color: var(--text-dark);         
 }
 
 /* Kotak kecil khusus angka jumlah pesanan */
@@ -157,7 +161,7 @@ input[type="number"] {
 .card-option input:checked + .card-content {
     background-color: var(--soft-yellow);
     border-color: var(--gold-soft);
-     font-weight: bold;
+    font-weight: bold;
 }
 
 .invoice-box {
