@@ -126,6 +126,9 @@ input[type="text"], textarea {
     padding: 10px;
     border: 1.5px solid #e2e8f0;
     border-radius: 8px;
+    font-family: 'Inter', sans-serif; 
+    font-size: 1rem;                 
+    color: var(--text-dark);         
 }
 
 /* Kotak kecil khusus angka jumlah pesanan */
